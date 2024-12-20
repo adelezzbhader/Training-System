@@ -8,8 +8,7 @@ export default function StudentForm({ student, onSubmit, onCancel }) {
       level: "",
       email: "",
       password: "",
-      visits: 0,
-      trainingDays: 0,
+      role: "student", // القيمة الافتراضية
     }
   );
 
@@ -111,36 +110,18 @@ export default function StudentForm({ student, onSubmit, onCancel }) {
 
         <div>
           <label className="block text-sm font-semibold text-gray-700">
-            Visits (0-4)
+            Role
           </label>
-          <input
-            type="number"
-            name="visits"
-            min="0"
-            max="4"
-            value={formData.visits}
+          <select
+            name="role"
+            value={formData.role}
             onChange={handleChange}
             className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="Number of visits"
             required
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-semibold text-gray-700">
-            Training Days
-          </label>
-          <input
-            type="number"
-            name="trainingDays"
-            min="1"
-            max="90"
-            value={formData.trainingDays}
-            onChange={handleChange}
-            className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="Number of training days"
-            required
-          />
+          >
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
         </div>
       </div>
 
